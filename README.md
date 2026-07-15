@@ -94,6 +94,12 @@ pnpm dev
 
 ---
 
+## Documentation
+
+Design docs live in [`documentations/`](documentations/README.md) — three-tier pyramid: vision → system architecture → per-feature specs.
+
+---
+
 ## Design Principles
 
 1. **No dead ends** — failure is narratively meaningful, never a blocker

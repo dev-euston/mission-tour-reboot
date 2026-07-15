@@ -205,6 +205,18 @@ All community-created content is moderated before players can access it (status:
 
 ---
 
+## Design Documentation
+
+Design docs live in `documentations/`. Three-tier pyramid:
+
+- `documentations/00-vision.md` — product goals, principles, user types, non-goals
+- `documentations/01-system-architecture.md` — app layers, auth, data, storage, PWA, offline
+- `documentations/features/<feature>.md` — per-feature flows, states, data needs, UI
+
+Before implementing a non-trivial feature, check `documentations/features/` for an existing spec. If one exists, the spec is authoritative — raise a conflict if the code would diverge. Use mermaid for any new diagrams added to these docs.
+
+---
+
 ## Key Technical Complexity Areas
 
 When touching these, flag complexity and suggest the simplest viable approach:
