@@ -58,19 +58,31 @@ ALWAYS use these terms. Never use alternatives.
 - **Task** — not "challenge", "step", or "objective"
 - **Story beat** — not "cutscene", "narrative update", or "interstitial" (a narrative-only task; no pass/fail)
 - **Agent Profile** — not "player profile", "account", or "user page"
-- **Reputation tier** — not "level", "rank", or "XP"
+- **Reputation tier** — creator-specific trust classification (Recruit → Operative → Handler → Architect); affects moderation treatment, not tool access
+- **Player level** — numeric level for players (not named tiers); driven by player score
 - **Mission brief** — not "intro", "description", or "overview"
 - **Creator** — not "author", "builder", or "contributor" (unless referring to a specific role)
 - **Stop** — not "waypoint", "checkpoint", or "location" (the GPS anchor of an Act)
 
 ---
 
-## Reputation Tiers (in order)
+## Roles
 
-1. Recruit — basic missions only
-2. Operative — harder missions, episodic arcs
-3. Handler — basic mission creation tools
-4. Architect — full creator access, revenue sharing
+Every agent can hold any combination of four roles. Player and Creator are active automatically on sign-up. Moderator and Business Owner are gated — applied for and approved by a supervising moderator.
+
+- **Player** — runs missions; earns stamps, badges, and a numeric player level
+- **Creator** — builds tasks and missions; any agent can create, no tier gate on tools
+- **Moderator** — reviews content and role applications; two levels: regular and supervising
+- **Business Owner** — manages reward campaigns (vouchers, discounts, access passes) for players
+
+## Creator Reputation Tiers (in order)
+
+Creator tiers are a moderation trust signal — not access gates. Higher tier = lighter scrutiny, faster queue.
+
+1. Recruit — full manual review on every submission
+2. Operative — standard review; prior approvals noted
+3. Handler — expedited queue
+4. Architect — lightest scrutiny; eligible for revenue sharing
 
 ---
 

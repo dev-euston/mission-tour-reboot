@@ -21,23 +21,34 @@ Every task outcome writes a flag to a mission-scoped state bag. Later story beat
 
 ## Creator First
 
-Missions are community-sourced. Creators at **Handler** tier and above build and publish content through two tools:
+Missions are community-sourced. Any signed-in agent can build and publish content through two tools:
 
 - **Task builder** — create reusable, story-agnostic tasks (type, instruction, optional precise GPS)
 - **Story builder** — assemble tasks into Mission → Act → Chapter structure and add all narrative context: pre-task narrative, per-outcome story branches, chapter intros/outros, and act summary flags
 
-All community content is moderated before players can access it.
+All community content is moderated before players can access it. A creator's reputation tier affects how quickly their submissions move through moderation — not whether they can create.
 
 ---
 
-## Reputation Tiers
+## Roles
 
-| Tier | Access |
+Every agent can hold any combination of four roles. Player and Creator are available immediately on sign-up; Moderator and Business Owner require an application approved by a supervising moderator.
+
+| Role | Description |
 |---|---|
-| Recruit | Basic missions only |
-| Operative | Harder missions, episodic arcs |
-| Handler | Basic mission creation tools |
-| Architect | Full creator access, revenue sharing |
+| Player | Runs missions; earns stamps, badges, and a numeric player level |
+| Creator | Builds tasks and missions; reputation tier affects moderation speed |
+| Moderator | Reviews content and role applications |
+| Business Owner | Runs reward campaigns (vouchers, discounts) redeemable by players |
+
+### Creator Tiers
+
+| Tier | Moderation Treatment |
+|---|---|
+| Recruit | Full manual review |
+| Operative | Standard review; prior approvals noted |
+| Handler | Expedited queue |
+| Architect | Lightest scrutiny; eligible for revenue sharing |
 
 ---
 
@@ -104,7 +115,7 @@ Design docs live in [`documentations/`](documentations/README.md) — three-tier
 
 1. **No dead ends** — failure is narratively meaningful, never a blocker
 2. **Real world first** — the app supports the physical experience; it does not replace it
-3. **Story over gamification** — narrative depth over points and streaks
+3. **Gamification serves the story** — badges, stamps, and levels reinforce engagement; they don't replace narrative as the motivation
 4. **Low friction** — the player must always know what to do next
 5. **Offline resilience** — must work in areas with poor signal
 6. **Privacy by design** — collect only the location data needed; never sell or share it
