@@ -9,7 +9,10 @@ export default defineConfig({
     fileParallelism: false,
     env: {
       DATABASE_URL: process.env.TEST_DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:5543/mission_tour_test',
+      JWT_SECRET: process.env.JWT_SECRET ?? 'test-secret-do-not-use-in-production-xyzxyz',
+      JWT_EXPIRY_SECONDS: '604800',
     },
+    setupFiles: ['./test/setup.ts'],
     include: ['**/*.test.ts', '**/*.test.tsx'],
     exclude: ['node_modules/**'],
   },
