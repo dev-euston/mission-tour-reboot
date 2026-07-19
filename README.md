@@ -32,7 +32,7 @@ All community content is moderated before players can access it. A creator's rep
 
 ## Roles
 
-Every agent can hold any combination of four roles. Player and Creator are available immediately on sign-up; Moderator and Business Owner require an application approved by a supervising moderator.
+Every user can hold any combination of four roles. Player and Creator are available immediately on sign-up; Moderator and Business Owner require an application approved by a supervising moderator.
 
 | Role | Description |
 |---|---|
@@ -69,17 +69,34 @@ Every agent can hold any combination of four roles. Player and Creator are avail
 
 ---
 
+## Repository Structure
+
+```
+mission-tour-reboot/
+├── app/               # Next.js application (all dev work happens here)
+│   ├── app/           # App Router routes and components
+│   ├── lib/           # Business logic by domain
+│   ├── prisma/        # Schema and migrations
+│   ├── public/        # Static assets
+│   ├── prisma.config.ts
+│   └── ...            # next.config.ts, tsconfig.json, etc.
+├── documentations/    # Design docs (vision → architecture → feature specs)
+└── docker-compose.yml # Two Postgres containers (main :5542, test :5543)
+```
+
 ## Local Setup
 
-**Prerequisites:** Docker, Node.js, pnpm
+**Prerequisites:** Docker (with docker-compose), Node.js 20+, pnpm
+
+All commands run from the **repo root**.
 
 ```bash
 # 1. Install dependencies
 pnpm install
 
-# 2. Start the database
-cp .env.example .env.local   # fill in POSTGRES_URL and other secrets
-docker compose up -d
+# 2. Copy env template and start databases
+cp app/.env.example app/.env.local
+docker-compose up -d   # main DB on :5542, test DB on :5543
 
 # 3. Run migrations
 pnpm db:migrate
@@ -87,7 +104,7 @@ pnpm db:migrate
 # 4. (Optional) Seed sample mission data
 pnpm db:seed
 
-# 5. Start the dev server
+# 5. Start the dev server (http://localhost:3051)
 pnpm dev
 ```
 
@@ -95,7 +112,7 @@ pnpm dev
 
 ## Stack
 
-- **Framework:** Next.js 15 (App Router) + TypeScript
+- **Framework:** Next.js 16 (App Router) + TypeScript
 - **Styling:** Tailwind v4 · mobile-first (375px baseline)
 - **Database:** PostgreSQL · Prisma v7 (Server Components + Server Actions read/write directly)
 - **Auth:** Custom JWT · `HttpOnly` session cookie

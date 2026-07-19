@@ -84,7 +84,7 @@ After all Acts are complete, the run is marked complete. A completion summary is
 
 ## Data Needs
 
-- `MissionRun` — `id`, `agentId`, `missionId`, `status`, `flags`, `startedAt`, `completedAt`
+- `MissionRun` — `id`, `userId`, `missionId`, `status`, `flags`, `startedAt`, `completedAt`
 - `ChapterTaskResult` — `id`, `missionRunId`, `chapterTaskId`, `outcome`, `submittedAt`, `payload` (photo URL, answer text, etc.)
 - `ChapterTask` — `pre_narrative`, `outcomeFlags`, `outcomeNarratives`, `taskId`, `chapterId`
 - `Task` — type, config (choices, answer, retries, GPS coords, etc.)

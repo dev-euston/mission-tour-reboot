@@ -32,11 +32,11 @@ This is the primary commercial model for the platform. Business Owners pay to pa
 ### Player: Earn a Reward
 1. Player completes the mission (or the specific Act) that has a reward attached.
 2. On the completion screen, a reward is shown if one is available in the pool.
-3. Player taps to claim — a unique voucher code (or equivalent) is issued and stored on their Agent Profile.
+3. Player taps to claim — a unique voucher code (or equivalent) is issued and stored on their user profile.
 4. The pool count decrements; if the pool is exhausted, subsequent completions show an "out of stock" state.
 
 ### Player: Redeem a Reward
-1. Player opens their reward wallet from their Agent Profile.
+1. Player opens their reward wallet from their user profile.
 2. Each unclaimed reward shows the business name, description, and expiry.
 3. Player taps to reveal the code (or show a barcode/QR) and presents it in person or at checkout.
 4. Reward is marked as redeemed with a timestamp.
@@ -86,7 +86,7 @@ Rewards can be tied to:
 
 - `BusinessProfile` — `id`, `name`, `location`, `contactEmail`, `createdAt`
 - `RewardCampaign` — `id`, `businessId`, `missionId`, `actId` (nullable), `rewardType`, `description`, `terms`, `expiresAt`, `poolSize`, `poolRemaining`, `triggerCondition: Json`
-- `PlayerReward` — `id`, `agentId`, `campaignId`, `code`, `issuedAt`, `redeemedAt` (nullable), `expiresAt`
+- `PlayerReward` — `id`, `userId`, `campaignId`, `code`, `issuedAt`, `redeemedAt` (nullable), `expiresAt`
 - Voucher codes are generated server-side on claim; never pre-generated in bulk (to avoid leakage)
 
 ---
