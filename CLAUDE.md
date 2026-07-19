@@ -14,20 +14,25 @@ This is a focused rebuild of the previous `mission-singapore` project. **The pri
 
 ## Commands
 
+All commands run from the **repo root** (a root `package.json` delegates to `app/` via `pnpm -C app`). You can also run them from `app/` directly.
+
 ```bash
 # Install dependencies
 pnpm install
 
-# Start DB (Docker)
-docker compose up -d
+# Start both DBs (Docker) — main on :5542, test on :5543
+docker-compose up -d
 
-# Run migrations
+# Run migrations (main DB)
 pnpm db:migrate
+
+# Run migrations (test DB)
+pnpm db:migrate:test
 
 # Seed demo content
 pnpm db:seed
 
-# Start dev server
+# Start dev server (port 3051)
 pnpm dev
 
 # Build
@@ -36,11 +41,11 @@ pnpm build
 # Lint
 pnpm lint
 
-# Test
+# Test (uses test DB on :5543 automatically)
 pnpm test
 
 # Test a single file
-pnpm test src/path/to/file.test.ts
+pnpm -C app test src/path/to/file.test.ts
 
 # Test with coverage
 pnpm test:coverage
@@ -152,7 +157,7 @@ Submission-based rules (`PHOTO_UPLOAD`, `OBJECT_DETECTION`, `QR_SCAN`, `ANSWER_M
 
 ### Data Layer
 
-- Prisma v7 + PostgreSQL; `prisma/` at project root
+- Prisma v7 + PostgreSQL; schema at `app/prisma/schema.prisma`; CLI config at `app/prisma.config.ts`
 - Server Actions and Server Components import from `lib/db.ts` (the Prisma client singleton)
 - Business logic lives in `lib/<domain>/` (e.g. `lib/mission/`, `lib/task/`); Server Actions are thin wrappers that call these functions and handle `revalidatePath`/`redirect`
 - Never import Prisma client in client components
@@ -226,6 +231,18 @@ Design docs live in `documentations/`. Three-tier pyramid:
 - `documentations/features/<feature>.md` — per-feature flows, states, data needs, UI
 
 Before implementing a non-trivial feature, check `documentations/features/` for an existing spec. If one exists, the spec is authoritative — raise a conflict if the code would diverge. Use mermaid for any new diagrams added to these docs.
+
+---
+
+## Prisma v7 Setup Notes
+
+Prisma v7 has breaking changes from v5/v6:
+
+- **No `url` in `schema.prisma` datasource** — connection strings moved to `prisma.config.ts` (for the CLI) and passed via a driver adapter at runtime.
+- **Driver adapter required** — `lib/db.ts` uses `@prisma/adapter-pg` + `pg`. The `PrismaClient` constructor takes `{ adapter }`.
+- **pnpm + types fix** — generator `output` is set to `../node_modules/@prisma/client/.prisma/client` so TypeScript can resolve `@prisma/client` types. Root `.npmrc` has `shamefully-hoist=true`. The `postinstall` script re-runs `prisma generate` after every install.
+- **Two databases** — `DATABASE_URL` (port 5542, `mission_tour`) for dev/prod; `TEST_DATABASE_URL` (port 5543, `mission_tour_test`) for tests. Vitest config swaps `DATABASE_URL` to `TEST_DATABASE_URL` automatically.
+- **`onlyBuiltDependencies`** — must live in the root `package.json` `pnpm` section, not in `app/package.json`.
 
 ---
 

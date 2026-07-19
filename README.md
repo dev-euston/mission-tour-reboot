@@ -73,28 +73,30 @@ Every user can hold any combination of four roles. Player and Creator are availa
 
 ```
 mission-tour-reboot/
-├── app/              # Next.js application (all dev work happens here)
-│   ├── app/          # App Router routes and components
-│   ├── public/       # Static assets
-│   └── ...           # next.config.ts, tsconfig.json, etc.
-└── documentations/   # Design docs (vision → architecture → feature specs)
+├── app/               # Next.js application (all dev work happens here)
+│   ├── app/           # App Router routes and components
+│   ├── lib/           # Business logic by domain
+│   ├── prisma/        # Schema and migrations
+│   ├── public/        # Static assets
+│   ├── prisma.config.ts
+│   └── ...            # next.config.ts, tsconfig.json, etc.
+├── documentations/    # Design docs (vision → architecture → feature specs)
+└── docker-compose.yml # Two Postgres containers (main :5542, test :5543)
 ```
-
-All commands below are run from the `app/` directory.
 
 ## Local Setup
 
-**Prerequisites:** Docker, Node.js, pnpm
+**Prerequisites:** Docker (with docker-compose), Node.js 20+, pnpm
+
+All commands run from the **repo root**.
 
 ```bash
-cd app
-
 # 1. Install dependencies
 pnpm install
 
-# 2. Start the database
-cp .env.example .env.local   # fill in POSTGRES_URL and other secrets
-docker compose up -d
+# 2. Copy env template and start databases
+cp app/.env.example app/.env.local
+docker-compose up -d   # main DB on :5542, test DB on :5543
 
 # 3. Run migrations
 pnpm db:migrate
@@ -102,7 +104,7 @@ pnpm db:migrate
 # 4. (Optional) Seed sample mission data
 pnpm db:seed
 
-# 5. Start the dev server
+# 5. Start the dev server (http://localhost:3051)
 pnpm dev
 ```
 

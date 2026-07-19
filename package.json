@@ -1,0 +1,20 @@
+{
+  "name": "mission-tour-reboot",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -C app dev",
+    "build": "pnpm -C app build",
+    "start": "pnpm -C app start",
+    "lint": "pnpm -C app lint",
+    "test": "pnpm -C app test",
+    "test:watch": "pnpm -C app test:watch",
+    "test:coverage": "pnpm -C app test:coverage",
+    "db:migrate": "pnpm -C app db:migrate",
+    "db:migrate:test": "pnpm -C app db:migrate:test",
+    "db:seed": "pnpm -C app db:seed",
+    "db:studio": "pnpm -C app db:studio"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@prisma/engines", "esbuild", "prisma"]
+  }
+}
