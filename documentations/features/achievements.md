@@ -1,13 +1,13 @@
 # Achievements & Progression
 
-The gamification layer across all four roles. Each role — Player, Creator, Moderator, Business Owner — has its own independent track with separate scores, badges, and tiers. An agent active in multiple roles accumulates progress on each track independently; they never mix.
+The gamification layer across all four roles. Each role — Player, Creator, Moderator, Business Owner — has its own independent track with separate scores, badges, and tiers. A user active in multiple roles accumulates progress on each track independently; they never mix.
 
 ---
 
 ## Player Gamification
 
 ### Mission Completion Stamps
-Every completed mission leaves a stamp on the player's Agent Profile — a visual record of their run history. The stamp reflects the overall outcome of the run (good / neutral / bad, derived from act summary flags), giving it meaning beyond just "completed".
+Every completed mission leaves a stamp on the player's user profile — a visual record of their run history. The stamp reflects the overall outcome of the run (good / neutral / bad, derived from act summary flags), giving it meaning beyond just "completed".
 
 - One stamp per mission per run; replaying a mission can earn a new stamp
 - Stamps are displayed as a collection on the profile — a visual log of places visited and stories experienced
@@ -39,7 +39,7 @@ Score is earned from:
 - Badge unlocks (one-time point bonuses)
 - Replay completions (diminishing returns on the same mission)
 
-Score determines **level** (a numeric progression, e.g. Level 1 → Level 2 → ...) and feeds a **global ranking** (all players) and a **local ranking** (players who have run missions in the same geographic area). Rankings are visible on the Agent Profile and on mission detail pages (top completers).
+Score determines **level** (a numeric progression, e.g. Level 1 → Level 2 → ...) and feeds a **global ranking** (all players) and a **local ranking** (players who have run missions in the same geographic area). Rankings are visible on the user profile and on mission detail pages (top completers).
 
 ---
 
@@ -108,11 +108,11 @@ Business Owner score is primarily a trust signal for the platform (similar to cr
 ## Data Needs
 
 - `Badge` — `id`, `slug`, `name`, `description`, `iconUrl`, `scope` (`player | creator`)
-- `AgentBadge` — `agentId`, `badgeId`, `earnedAt`; unique per agent per badge
-- `MissionStamp` — `agentId`, `missionId`, `missionRunId`, `outcome`, `stampArt`, `earnedAt`
-- `AgentScore` — `agentId`, `playerScore`, `creatorScore`, `updatedAt`
+- `UserBadge` — `userId`, `badgeId`, `earnedAt`; unique per user per badge
+- `MissionStamp` — `userId`, `missionId`, `missionRunId`, `outcome`, `stampArt`, `earnedAt`
+- `UserScore` — `userId`, `playerScore`, `creatorScore`, `updatedAt`
 - `CreatorChallenge` — `id`, `description`, `condition: Json`, `startsAt`, `endsAt`, `badgeId` (nullable), `scoreBonus`
-- `AgentChallengeCompletion` — `agentId`, `challengeId`, `completedAt`
+- `UserChallengeCompletion` — `userId`, `challengeId`, `completedAt`
 - Score and tier recalculation runs server-side on mission completion and moderation events; not real-time
 
 ---
@@ -120,6 +120,6 @@ Business Owner score is primarily a trust signal for the platform (similar to cr
 ## Open Questions
 
 - **Stamp art** — does the platform provide default stamp art, or is it always creator-defined? A default set per mission theme is the practical starting point.
-- **Ranking visibility** — is the global ranking public (visible to all players) or only visible to the signed-in agent? Start private, open later.
+- **Ranking visibility** — is the global ranking public (visible to all players) or only visible to the signed-in user? Start private, open later.
 - **Score decay** — does inactivity reduce score over time? Probably not at launch — keep it simple; score only goes up.
 - **Mission-specific badges** — creator-defined badges are powerful but add complexity. Post-launch feature.

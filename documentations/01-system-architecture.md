@@ -38,7 +38,7 @@ Auth is a custom JWT implementation — no NextAuth or third-party auth provider
 - Session token is a signed JWT stored in an `HttpOnly` cookie
 - `getSession()` validates and returns the session; called in Server Components and Server Actions
 - `middleware.ts` enforces auth on protected routes by checking the cookie before the request reaches the page
-- Agent Profiles are created on first sign-up; reputation tier is stored on the profile and checked at the application layer for feature access
+- User profiles are created on first sign-up; reputation tier is stored on the profile and checked at the application layer for feature access
 
 ---
 
@@ -53,7 +53,7 @@ Auth is a custom JWT implementation — no NextAuth or third-party auth provider
 ### Core Entities
 
 ```
-AgentProfile         ←  player/creator identity, reputation tier
+UserProfile          ←  user identity, reputation tier
 Mission              ←  the full narrative arc; has status (draft/published)
 Act                  ←  one physical location (Stop); owns GPS coordinates
 Chapter              ←  narrative grouping within an Act

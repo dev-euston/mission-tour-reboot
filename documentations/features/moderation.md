@@ -95,7 +95,7 @@ The outcome of photo validation writes back to the `ChapterTaskResult` and unblo
 
 ### Moderator Applications
 1. Supervising moderator sees pending moderator applications in a separate queue.
-2. Reviews the applicant's agent handle, reputation tiers, and their written application.
+2. Reviews the applicant's handle, reputation tiers, and their written application.
 3. Approves (Moderator role activated on the applicant's profile) or rejects with a written reason.
 4. No appeal process — the applicant can reapply after a cooldown period.
 
@@ -127,7 +127,7 @@ The outcome of photo validation writes back to the `ChapterTaskResult` and unblo
 - **Approved** — confirmed with timestamp
 - **Rejected** — reason shown; revision and resubmit available
 
-### Agent (role application)
+### User (role application)
 - **Application pending** — submitted; read-only status on profile
 - **Application approved** — new role track activated; notification on next page load
 - **Application rejected** — reason shown; reapply or revise available
@@ -139,5 +139,5 @@ The outcome of photo validation writes back to the `ChapterTaskResult` and unblo
 - `Task.status` / `Mission.status` — `draft | pending_review | approved | rejected`
 - `ModerationRecord` — `contentType`, `contentId`, `moderatorId`, `decision`, `notes`, `decidedAt`
 - `ChapterTaskResult.photoStatus` — `pending | approved | rejected` (for photo validation)
-- `RoleApplication` — `agentId`, `role`, `applicationData: Json`, `status`, `reviewedBy`, `reviewNotes`, `submittedAt`, `decidedAt` (shared with auth feature)
-- `AgentRole.level` — `regular | supervising` (for moderators only; other roles have no sub-level)
+- `RoleApplication` — `userId`, `role`, `applicationData: Json`, `status`, `reviewedBy`, `reviewNotes`, `submittedAt`, `decidedAt` (shared with auth feature)
+- `UserRole.level` — `regular | supervising` (for Moderators only; other roles have no sub-level)

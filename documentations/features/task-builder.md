@@ -8,7 +8,7 @@ The creator tool for building reusable, story-agnostic tasks. Tasks created here
 
 A Task describes a real-world action — photograph something, scan a code, answer a question, navigate to a spot. Tasks carry no narrative context; that lives in the `ChapterTask` placement. This separation means a well-designed task (e.g. "photograph a red door") can be reused across many different missions with completely different story contexts.
 
-Any signed-in agent can access the Task Builder. Reputation tier affects how submitted tasks are treated in moderation, not whether the tool is available.
+Any signed-in user can access the Task Builder. Reputation tier affects how submitted tasks are treated in moderation, not whether the tool is available.
 
 ---
 

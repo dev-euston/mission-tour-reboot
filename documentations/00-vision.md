@@ -18,19 +18,19 @@ Mission: Tour is a location-based, narrative-driven adventure game delivered as 
 
 ## Roles
 
-A single agent can hold any combination of the four roles simultaneously. Each role is a separate track with its own progression, score, and gamification — they do not mix. An agent who plays missions, publishes content, reviews submissions, and runs a reward campaign has four independent tracks running in parallel on their profile.
+A single user can hold any combination of the four roles simultaneously. Each role is a separate track with its own progression, score, and gamification — they do not mix. A user who plays missions, publishes content, reviews submissions, and runs a reward campaign has four independent tracks running in parallel on their profile.
 
 ### Player
 Selects and runs missions. Navigates to physical locations, completes tasks, and experiences a branching narrative that responds to their outcomes. Earns mission stamps, achievement badges, and a persistent player score that feeds their reputation ranking.
 
 ### Creator
-Authors missions. Builds reusable tasks in the **Task Builder** and assembles them into narrative structures in the **Story Builder**. Any agent can create — there are no role gates on the tools. A creator's reputation tier (earned through their creator track) determines how submissions move through moderation: trusted creators get lighter review; new or low-reputation creators get closer scrutiny.
+Authors missions. Builds reusable tasks in the **Task Builder** and assembles them into narrative structures in the **Story Builder**. Any user can create — there are no role gates on the tools. A creator's reputation tier (earned through their creator track) determines how submissions move through moderation: trusted creators get lighter review; new or low-reputation creators get closer scrutiny.
 
 ### Moderator
-Reviews community-created content before it is published. Approves or rejects tasks and missions, and manages the photo validation queue during player runs. The Moderator role is gated — any agent can apply, but the application is reviewed and approved by a supervising moderator. There is a two-level hierarchy: regular moderators handle content review; supervising moderators handle content review and role applications.
+Reviews community-created content before it is published. Approves or rejects tasks and missions, and manages the photo validation queue during player runs. The Moderator role is gated — any user can apply, but the application is reviewed and approved by a supervising Moderator. There is a two-level hierarchy: regular Moderators handle content review; supervising Moderators handle content review and role applications.
 
 ### Business Owner
-A real-world business (café, retailer, attraction, etc.) that sponsors missions or provides rewards to players. Manages reward campaigns — vouchers, discounts, access passes — redeemable by players on mission completion. The Business Owner role is gated — any agent can apply, but the application (including business profile verification) is reviewed and approved by a supervising moderator. Business Owner participation is the primary commercial model for the platform.
+A real-world business (café, retailer, attraction, etc.) that sponsors missions or provides rewards to players. Manages reward campaigns — vouchers, discounts, access passes — redeemable by players on mission completion. The Business Owner role is gated — any user can apply, but the application (including business profile verification) is reviewed and approved by a supervising Moderator. Business Owner participation is the primary commercial model for the platform.
 
 ---
 

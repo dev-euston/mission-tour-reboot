@@ -8,7 +8,7 @@ The creator tool for assembling tasks into a mission's full narrative structure.
 
 The Story Builder lets creators compose the Mission → Act → Chapter → ChapterTask hierarchy and author narrative text at each level. The creator brings the voice; the tasks provide the real-world actions. The Story Builder is where those two things are joined.
 
-Any signed-in agent can access the Story Builder. Reputation tier affects how submitted missions are treated in moderation — not whether the tool is available. Revenue sharing eligibility for Architect-tier creators is the one exception: it is gated on tier, not on the tool itself.
+Any signed-in user can access the Story Builder. Reputation tier affects how submitted missions are treated in moderation — not whether the tool is available. Revenue sharing eligibility for Architect-tier creators is the one exception: it is gated on tier, not on the tool itself.
 
 ---
 
