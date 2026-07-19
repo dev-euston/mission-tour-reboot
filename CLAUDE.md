@@ -57,7 +57,7 @@ ALWAYS use these terms. Never use alternatives.
 - **Chapter** — not "section" or "group" (a narrative unit within an act; groups tasks by area or sequence)
 - **Task** — not "challenge", "step", or "objective"
 - **Story beat** — not "cutscene", "narrative update", or "interstitial" (a narrative-only task; no pass/fail)
-- **Agent Profile** — not "player profile", "account", or "user page"
+- **User profile** — not "agent profile", "account", or "user page"
 - **Reputation tier** — creator-specific trust classification (Recruit → Operative → Handler → Architect); affects moderation treatment, not tool access
 - **Player level** — numeric level for players (not named tiers); driven by player score
 - **Mission brief** — not "intro", "description", or "overview"
@@ -68,10 +68,10 @@ ALWAYS use these terms. Never use alternatives.
 
 ## Roles
 
-Every agent can hold any combination of four roles. Player and Creator are active automatically on sign-up. Moderator and Business Owner are gated — applied for and approved by a supervising moderator.
+Every user can hold any combination of four roles — one user, many roles. Player and Creator are active automatically on sign-up. Moderator and Business Owner are gated — applied for and approved by a supervising Moderator.
 
 - **Player** — runs missions; earns stamps, badges, and a numeric player level
-- **Creator** — builds tasks and missions; any agent can create, no tier gate on tools
+- **Creator** — builds tasks and missions; any user can create, no tier gate on tools
 - **Moderator** — reviews content and role applications; two levels: regular and supervising
 - **Business Owner** — manages reward campaigns (vouchers, discounts, access passes) for players
 

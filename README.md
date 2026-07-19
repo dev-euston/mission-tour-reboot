@@ -32,7 +32,7 @@ All community content is moderated before players can access it. A creator's rep
 
 ## Roles
 
-Every agent can hold any combination of four roles. Player and Creator are available immediately on sign-up; Moderator and Business Owner require an application approved by a supervising moderator.
+Every user can hold any combination of four roles. Player and Creator are available immediately on sign-up; Moderator and Business Owner require an application approved by a supervising moderator.
 
 | Role | Description |
 |---|---|
@@ -69,11 +69,26 @@ Every agent can hold any combination of four roles. Player and Creator are avail
 
 ---
 
+## Repository Structure
+
+```
+mission-tour-reboot/
+├── app/              # Next.js application (all dev work happens here)
+│   ├── app/          # App Router routes and components
+│   ├── public/       # Static assets
+│   └── ...           # next.config.ts, tsconfig.json, etc.
+└── documentations/   # Design docs (vision → architecture → feature specs)
+```
+
+All commands below are run from the `app/` directory.
+
 ## Local Setup
 
 **Prerequisites:** Docker, Node.js, pnpm
 
 ```bash
+cd app
+
 # 1. Install dependencies
 pnpm install
 
@@ -95,7 +110,7 @@ pnpm dev
 
 ## Stack
 
-- **Framework:** Next.js 15 (App Router) + TypeScript
+- **Framework:** Next.js 16 (App Router) + TypeScript
 - **Styling:** Tailwind v4 · mobile-first (375px baseline)
 - **Database:** PostgreSQL · Prisma v7 (Server Components + Server Actions read/write directly)
 - **Auth:** Custom JWT · `HttpOnly` session cookie
