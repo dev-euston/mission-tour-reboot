@@ -58,19 +58,31 @@ ALWAYS use these terms. Never use alternatives.
 - **Task** — not "challenge", "step", or "objective"
 - **Story beat** — not "cutscene", "narrative update", or "interstitial" (a narrative-only task; no pass/fail)
 - **Agent Profile** — not "player profile", "account", or "user page"
-- **Reputation tier** — not "level", "rank", or "XP"
+- **Reputation tier** — creator-specific trust classification (Recruit → Operative → Handler → Architect); affects moderation treatment, not tool access
+- **Player level** — numeric level for players (not named tiers); driven by player score
 - **Mission brief** — not "intro", "description", or "overview"
 - **Creator** — not "author", "builder", or "contributor" (unless referring to a specific role)
 - **Stop** — not "waypoint", "checkpoint", or "location" (the GPS anchor of an Act)
 
 ---
 
-## Reputation Tiers (in order)
+## Roles
 
-1. Recruit — basic missions only
-2. Operative — harder missions, episodic arcs
-3. Handler — basic mission creation tools
-4. Architect — full creator access, revenue sharing
+Every agent can hold any combination of four roles. Player and Creator are active automatically on sign-up. Moderator and Business Owner are gated — applied for and approved by a supervising moderator.
+
+- **Player** — runs missions; earns stamps, badges, and a numeric player level
+- **Creator** — builds tasks and missions; any agent can create, no tier gate on tools
+- **Moderator** — reviews content and role applications; two levels: regular and supervising
+- **Business Owner** — manages reward campaigns (vouchers, discounts, access passes) for players
+
+## Creator Reputation Tiers (in order)
+
+Creator tiers are a moderation trust signal — not access gates. Higher tier = lighter scrutiny, faster queue.
+
+1. Recruit — full manual review on every submission
+2. Operative — standard review; prior approvals noted
+3. Handler — expedited queue
+4. Architect — lightest scrutiny; eligible for revenue sharing
 
 ---
 
@@ -202,6 +214,18 @@ This rebuild prioritises the creator experience as the core product surface. Two
 2. **Story builder** — assemble tasks into Mission → Act → Chapter structure; add narrative context at each level (`pre_narrative`, `outcomeFlags`, `outcomeNarratives`, chapter `intro`/`outro`, act summary flag config)
 
 All community-created content is moderated before players can access it (status: `pending_review → approved | rejected`). Reputation gate: **Handler** tier for basic tools, **Architect** for full access + revenue sharing.
+
+---
+
+## Design Documentation
+
+Design docs live in `documentations/`. Three-tier pyramid:
+
+- `documentations/00-vision.md` — product goals, principles, user types, non-goals
+- `documentations/01-system-architecture.md` — app layers, auth, data, storage, PWA, offline
+- `documentations/features/<feature>.md` — per-feature flows, states, data needs, UI
+
+Before implementing a non-trivial feature, check `documentations/features/` for an existing spec. If one exists, the spec is authoritative — raise a conflict if the code would diverge. Use mermaid for any new diagrams added to these docs.
 
 ---
 
