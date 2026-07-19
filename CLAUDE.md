@@ -153,7 +153,7 @@ Submission-based rules (`PHOTO_UPLOAD`, `OBJECT_DETECTION`, `QR_SCAN`, `ANSWER_M
 - **Server Actions** for all mutations — form submissions and interactive updates call Server Actions; never build a REST endpoint for internal app data
 - **Route Handlers** (`app/api/`) only for things that must be HTTP endpoints: webhook receivers, PWA manifest, and any third-party callback URLs
 - Auth is custom JWT: session token stored in an `HttpOnly` cookie; a `getSession()` helper (called in Server Components and Server Actions) validates and returns the session. No NextAuth.
-- Middleware (`middleware.ts`) enforces auth on protected routes by checking the session cookie
+- `proxy.ts` (Next.js 16 equivalent of `middleware.ts`) enforces auth on protected routes by checking the session cookie directly via `request.cookies.get('session')` — cannot use `next/headers` here, so `getSession()` is not usable in proxy
 
 ### Data Layer
 
@@ -240,7 +240,7 @@ Prisma v7 has breaking changes from v5/v6:
 
 - **No `url` in `schema.prisma` datasource** — connection strings moved to `prisma.config.ts` (for the CLI) and passed via a driver adapter at runtime.
 - **Driver adapter required** — `lib/db.ts` uses `@prisma/adapter-pg` + `pg`. The `PrismaClient` constructor takes `{ adapter }`.
-- **pnpm + types fix** — generator `output` is set to `../node_modules/@prisma/client/.prisma/client` so TypeScript can resolve `@prisma/client` types. Root `.npmrc` has `shamefully-hoist=true`. The `postinstall` script re-runs `prisma generate` after every install.
+- **pnpm + types fix** — generator `output` is set to `../lib/generated/prisma` (a committed, non-hidden path). Node.js v25 and TypeScript both refuse to resolve `.prisma/client/default` (path starts with `.` but not `./`), so outputting into `node_modules` is broken on Node.js v25. The generated client is imported directly: `lib/db.ts` imports from `'./generated/prisma'`; enums/types are imported from `'@/lib/generated/prisma'`. A `tsconfig.json` path alias maps `"@prisma/client"` → `"./lib/generated/prisma"` for any third-party code that imports from `@prisma/client`. Root `.npmrc` has `shamefully-hoist=true`. The `postinstall` script re-runs `prisma generate` after every install.
 - **Two databases** — `DATABASE_URL` (port 5542, `mission_tour`) for dev/prod; `TEST_DATABASE_URL` (port 5543, `mission_tour_test`) for tests. Vitest config swaps `DATABASE_URL` to `TEST_DATABASE_URL` automatically.
 - **`onlyBuiltDependencies`** — must live in the root `package.json` `pnpm` section, not in `app/package.json`.
 
